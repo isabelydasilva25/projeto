@@ -647,7 +647,7 @@ void menu_principal();
             scanf("%d", &escolha_pagamento);
             switch(escolha_pagamento)
             case 1:
-            preco_final= preco_a * (80.00/100.00);
+            preco_final= preco_b * (80.00/100.00);
             printf(" %.2f", preco_final);
             
     }else if(ve==303){
