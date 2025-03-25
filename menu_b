@@ -296,3 +296,253 @@ void menu_principal();
     return 0;
     
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h> //inclui uma biblioteca
+
+int quantidade = 0; // variavel global pra total para quantidade
+float total = 0.0; // variavel global para total
+float saldo = 0.0;  // incluindo variavel universal
+// definindos as funçoes que serao usadas
+void menu();// menu principal
+void submenu_financ(); // menu financeiro
+void submenu_store(); // menu estoque
+void submenu_venda(); // menu de vendas
+
+// INICIO menu_venda
+void submenu_venda() {
+    // definindo as variáveis que serão usadas
+    int ops, pr, qtd, pp; // variáveis do tipo inteiras (1)
+    float preco, preco2, nota; // variáveis do tipo decimal (1,0)
+    char p; // variável do tipo escrita (ABCD)
+
+    do { // inicio da verificação se o usuário deseja sair do menu
+        printf("\n--- Controle de Vendas ---\n"); // imprime na tela a mensagem escrita entre as aspas
+        printf("1 - Itens Disponíveis\n");
+        printf("7 - Voltar ao Menu Principal\n");
+        printf("Escolha: ");
+        scanf("%d", &ops); // entrada de informações do teclado do usuário
+
+        switch (ops) { // define oque acontece em cada escolha
+            case 1: // se o usuário escolheu 1 então acontecerá o case 1
+                do { // verifica se a escolha do usuário está correta
+                    printf("\n301 - Pão de Forma - R$7.00\n");
+                    printf("302 - Salame - R$15.00\n");
+                    printf("303 - Caderno - R$25.00\n");
+                    printf("304 - Caneta - R$2.00\n");
+
+                    do { // verifica se a escolha do usuário está certa
+                        printf("\nDigite o código do produto desejado: ");
+                        scanf("%d", &pr);
+                       
+                        if (pr != 301 && pr != 302 && pr != 303 && pr != 304) { // verifica se a alternativa que o usuário escolheu existe
+                            printf("Código inválido! Tente novamente.\n");
+                        }
+                    } while (pr != 301 && pr != 302 && pr != 303 && pr != 304);
+
+                    printf("Digite quantas unidades o cliente está comprando: ");
+                    scanf("%d", &qtd);
+
+                    switch (pr) { // dependendo do valor do produto e da quantidade temos preços diferentes
+                        case 301:
+                            preco = preco + 7.00 * qtd;
+                            break;
+                        case 302:
+                            preco = preco + 15.00 * qtd;
+                            break;
+                        case 303:
+                            preco = preco + 25.00 * qtd;
+                            break;
+                        case 304:
+                            preco = preco + 2.00 * qtd;
+                            break;
+                    }
+
+                    do {
+                        printf("\nDeseja passar mais algum produto? (s/n): ");
+                        scanf(" %c", &p);
+
+                        if (p != 's' && p != 'n') {
+                            printf("Opção inválida! Digite 's' para sim ou 'n' para não.\n");
+                        }
+                    } while (p != 's' && p != 'n');
+
+                } while (p == 's');
+
+                printf("\nO valor da compra ficou: R$%.2f\n", preco);
+
+                do {
+                    printf("\n1 - Dinheiro\n");
+                    printf("2 - Cartão\n");
+                    printf("3 - Cancelar Compra\n");
+                    printf("Qual a forma de pagamento?: ");
+                    scanf("%d", &pp);
+
+                    switch (pp) { // se usuário escolher pagar no dinheiro são feitos descontos com base no preço
+                        case 1:
+                            if (preco <= 50.00) { // se o preço for menor que 50, desconto de 5 porcento
+                                preco2 = preco * 0.05;
+                            } else if (preco > 50.00 && preco < 100.00) { // se preço for maior que 50 E menor que 100, desconto de 10 porcento
+                                preco2 = preco * 0.10;
+                            } else { // se maior que 100, desconto de 18 porcento
+                                preco2 = preco * 0.18;
+                            }
+                            preco = preco - preco2; // calculando desconto
+                            printf("Total com desconto: R$%.2f\n", preco);
+                           
+                            printf("Valor que o cliente entregou: ");
+                            scanf(" %f", &nota);
+                           
+                            nota = nota - preco; // calculando troco
+                           
+                            printf("O troco ficou: R$%.2f", nota);
+                           
+                            saldo = saldo + preco; // acumulador de receitas
+                           
+                           total = total + preco; //total de dinheiro das vendas
+                           quantidade ++; //total de vendas
+                           
+                            break;
+                        case 2:
+                            printf("Cartão passou? (0 = não, 1 = sim): "); //verificação para checar se o cartão passou corretamente
+                            scanf("%d", &pp);
+                            if (pp == 0) {
+                                printf("Cartão recusado!\n");
+                            } else {
+                                printf("Compra Finalizada!\n");
+                                saldo = saldo + preco; //insere o valor total da venda no saldo
+                            }
+                            
+                            total = total + preco; //total de vendas
+                            quantidade++; //total de vendas
+                            
+                            break;
+                        case 3:
+                            printf("Compra cancelada!\n");
+                            return;
+                        default:
+                            printf("Opção inválida! Tente novamente.\n");//caso o usuário insira uma opção inexistente
+                    }
+                } while (pp != 1 && pp != 2);
+
+                break;
+            case 7:
+                menu();
+                break;
+            default:
+                printf("Opção inválida!\n");//caso o usuário insira uma opção inexistente
+        }
+    } while (ops != 7);
+}
+// FIM menu_venda
+
+// INICIO menu do financeiro
+void submenu_financ() {
+    float valor; //variável de valor
+    int opcao; //variável de opção
+
+    do {
+        printf("\n--- Controle Financeiro ---\n");
+        printf("201 - Registrar Despesas\n");
+        printf("202 - Registrar Receitas\n");
+        printf("203 - Consultar Saldo\n");
+        printf("6 - Voltar ao Menu Principal\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) { //verifica qual opção o usuário escolheu
+            case 201:
+                printf("\nDigite o valor da despesa: R$ ");
+                scanf("%f", &valor);
+                saldo = saldo - valor; 
+                printf("Despesa registrada com sucesso!\n");
+                break;
+            case 202:
+                printf("\nDigite o valor da receita: R$ ");
+                scanf("%f", &valor);
+                saldo = saldo + valor;
+                printf("Receita registrada com sucesso!\n");
+                break;
+            case 203:
+                printf("\nSaldo atual: R$ %.2f\n", saldo);
+                break;
+            case 6:
+                menu();
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (opcao != 6);
+}
+// FIM menu do financeiro
+
+// INICIO menu estoque
+void submenu_store() {
+    int opc;
+
+    do {
+        printf("\n--- Controle de Estoque ---\n");
+        printf("1 - Itens Disponíveis\n");
+        printf("5 - Voltar ao Menu Principal\n");
+        printf("Escolha: ");
+        scanf("%d", &opc); //registra a opção escolhida pelo usuário
+
+        switch (opc) {
+            case 1: //produtos
+                printf("\n101 - Pão de Forma - 20 Unidades");
+                printf("\n102 - Salame - 10 Unidades");
+                printf("\n103 - Caderno - 30 Unidades");
+                printf("\n104 - Caneta - 15 Unidades");
+                break;
+            case 5:
+                menu();
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");//caso o usuário insira uma opção inexistente
+        }
+    } while (opc != 5);
+}
+// FIM menu do estoque
+
+// INICIO do menu principal
+void menu() {
+    char ops;
+
+    while (1) {
+        printf("\n---------MENU PRINCIPAL---------\n");
+        printf("Digite:\n");
+        printf("'e' - Controle de Estoque\n");
+        printf("'f' - Controle Financeiro\n");
+        printf("'v' - Controle de Vendas\n");
+        printf("'s' - Sair\n");
+        printf("Escolha: ");
+        scanf(" %c", &ops);
+
+        switch (ops) {
+            case 'e':
+                submenu_store();
+                break;
+            case 'f':
+                submenu_financ();
+                break;
+            case 'v':
+                submenu_venda();
+                break;
+            case 's':
+                printf("\nTotal vendas do dia: %d\n", quantidade);
+                printf("Total de lucro bruto no dia: %.2f\n", total);
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+        break;
+    }
+}
+// FIM do menu principal
+
+// o usuario começa aqui
+int main() {
+    // chama a funçao menu
+    menu();
+    return 0;
+}
