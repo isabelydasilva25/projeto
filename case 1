@@ -1,0 +1,19 @@
+
+
+ switch(escolha_pagamento) {
+            case 1:
+             if (preco_a <= 50) { // se o preço for menor que 50, desconto de 5 porcento 
+               preco_final = preco_a * (90/100); // calculando desconto
+               printf("Total com desconto: R$%.2f\n", preco_final);
+               
+               printf("Valor que o cliente entregou: ");
+               scanf(" %f", &valor);
+
+                valor = valor - preco_final; // calculando troco
+
+                printf("O troco ficou: R$%.2f", valor);
+
+                     break;
+             }
+             
+        }
