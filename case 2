@@ -1,0 +1,10 @@
+case 2:
+                    printf("cartão foi aceito(0 = não , 1 = sim) :"); //verificar se o cartao passou
+            scanf("%d" , &cartao);
+             if (cartao == 0)
+                printf("cartao recusado!");
+           }else{
+                printf("compra finalizada");
+                valor = valor + preco_a; // insira o valor total de vendas no saldo
+           }
+            break;
