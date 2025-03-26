@@ -8,3 +8,12 @@ case 2:
                 valor = valor + preco_a; // insira o valor total de vendas no saldo
            }
             break;
+
+ case 3:
+             printf("compra cancela!\n");
+            default:
+            printf("opçao invalida! tente novamente. \n");//caso o usuario insira uma opçao inexistente
+            break;
+            
+            
+        }
