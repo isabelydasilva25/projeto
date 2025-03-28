@@ -8,13 +8,13 @@ void menu_principal(); //menu_principal
 //inicio menu financeiro
 int financeiro(int fi){
     if(fi==201){ //verificacao de qual opcao o usuario escolheu
-        printf("registrar despesas");
+        printf(" registrar despesas");
     }else if(fi==202){ //verificacao de qual opcao o usuario escolheu
-        printf("registrar receitas");
+        printf(" registrar receitas");
     }else if(fi==203){ //verificacao de qual opcao o usuario escolheu
         printf("consultar saldo");
     }else if(fi==204){ //verificacao de qual opcao o usuario escolheu
-        printf("voltar ao menu principal");
+        printf(" voltar ao menu principal");
         menu_principal();
     }
     return fi;
@@ -39,17 +39,17 @@ int vendas(int ve){
     int escolha_pagamento;
      // define o produto e a quantidade que o usuario quer 
     if(ve==301){
-        printf("produto a- R$10.00");
-        printf("\nquantos produtos você quer?");
+        printf(" produto a- R$10.00");
+        printf(" \nquantos produtos você quer?");
         scanf("%d", &quantidade);
         multi= quantidade * preco_a;
-        printf("Preco com desconto %f", multi);
+        printf(" Preco com desconto %f", multi);
          //printf("multiplicaçao");
          //printf("%d", multi);
-        printf("\n1-dinheiro\n");
-        printf("\n2-cartao\n");
-        printf("\n3-cancelar compra\n");
-        printf("qual a forma de pagamento?");
+        printf(" \n1-dinheiro\n");
+        printf(" \n2-cartao\n");
+        printf(" \n3-cancelar compra\n");
+        printf(" qual a forma de pagamento?");
         scanf("%d", &escolha_pagamento);
             
             //o usuario escolhe a forma de pagamento
@@ -62,25 +62,25 @@ int vendas(int ve){
                 } else if (preco_a > 100) {// se maior que 100, desconto de 18 porcento
                     preco_final = preco_a - preco_a * (18.00/100);
                 }    
-                printf("Total com desconto: R$%.2f\n", preco_final);
+                printf(" Total com desconto: R$%.2f\n", preco_final);
                
-                printf("Valor que o cliente entregou: ");
+                printf(" Valor que o cliente entregou: ");
                 scanf(" %f", &valor);
 
                 valor = valor - preco_final; // calculando troco
 
-                printf("O troco ficou: R$%.2f", valor);
+                printf(" O troco ficou: R$%.2f", valor);
                 menu_principal();
 
                 break;
                     
             case 2:
-                printf("cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
+                printf(" cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
                 scanf("%f" , &verificacao);
                 if(verificacao == 0){
-                    printf("cartão recusado");
+                    printf(" cartão recusado");
                 }else{
-                    printf("compra finalizada");
+                    printf(" compra finalizada");
                     valor = valor + preco_final;
                     menu_principal();
                 }
@@ -89,17 +89,17 @@ int vendas(int ve){
         }
                  
     } else if(ve==302){
-         printf("produto b - R$20.00");
-         printf("quantos produtos você quer?");
+         printf(" produto b - R$20.00");
+         printf(" quantos produtos você quer?");
          scanf(" %d", &quantidade);
          mut= quantidade * preco_b;
-         printf("preço com desconto %f" , mut);
+         printf(" preço com desconto %f" , mut);
          //printf("multiplicaçao");
          //printf("%d" , mut);
-          printf("\n1-dinheiro\n");
-            printf("\n2-cartao\n");
-            printf("\n3-cancelar compra\n");
-            printf("qual a forma de pagamento?");
+          printf(" \n1-dinheiro\n");
+            printf(" \n2-cartao\n");
+            printf(" \n3-cancelar compra\n");
+            printf(" qual a forma de pagamento?");
             scanf("%d", &escolha_pagamento);
             switch(escolha_pagamento){
             case 1:
@@ -110,26 +110,26 @@ int vendas(int ve){
              } else if (preco_b > 100) {// se maior que 100, desconto de 18 porcento
                  preco_final = preco_b - preco_b * (18.00/100);
              }    
-               printf("Total com desconto: R$%.2f\n", preco_final);
+               printf(" Total com desconto: R$%.2f\n", preco_final);
                
-               printf("Valor que o cliente entregou: ");
+               printf(" Valor que o cliente entregou: ");
                scanf(" %f", &valor);
 
                 valor = valor - preco_final; // calculando troco
                 menu_principal();
 
-                printf("O troco ficou: R$%.2f", valor);
+                printf(" O troco ficou: R$%.2f", valor);
                 menu_principal();
 
                      break;
                      
             case 2:
-                printf("cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
+                printf(" cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
                 scanf("%f" , &verificacao);
                 if(verificacao == 0){
-                  printf("cartão recusado");
+                  printf(" cartão recusado");
                 }else{
-                  printf("compra finalizada");
+                  printf(" compra finalizada");
                   valor = valor + preco_final;
                   menu_principal();
              }
@@ -139,17 +139,17 @@ int vendas(int ve){
         
             
     } else if(ve==303){
-         printf("produto c - R$15.00");
-         printf("quantos produtos você quer?");
+         printf(" produto c - R$15.00");
+         printf(" quantos produtos você quer?");
          scanf(" %d", &quantidade);
          muti= quantidade *preco_c;
          printf(" preço com desconto %f" , muti);
          //printf("multiplicaçao");
          //printf("%d" , muti);
-         printf("\n1-dinheiro\n");
-            printf("\n2-cartao\n");
-            printf("\n3-cancelar compra\n");
-            printf("qual a forma de pagamento?");
+         printf(" \n1-dinheiro\n");
+            printf(" \n2-cartao\n");
+            printf(" \n3-cancelar compra\n");
+            printf(" qual a forma de pagamento?");
             scanf("%d", &escolha_pagamento);
             switch(escolha_pagamento){
             case 1:
@@ -160,25 +160,25 @@ int vendas(int ve){
              } else if (preco_c > 100) {// se maior que 100, desconto de 18 porcento
                  preco_final = preco_c - preco_c * (18.00/100);
              }    
-               printf("Total com desconto: R$%.2f\n", preco_final);
+               printf(" Total com desconto: R$%.2f\n", preco_final);
                
-               printf("Valor que o cliente entregou: ");
+               printf(" Valor que o cliente entregou: ");
                scanf(" %f", &valor);
 
                 valor = valor - preco_final; // calculando troco
 
-                printf("O troco ficou: R$%.2f", valor);
+                printf(" O troco ficou: R$%.2f", valor);
                 menu_principal();
 
                      break;
             case 2:
-                printf("cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
+                printf(" cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
                 scanf("%f" , &verificacao);
                 if(verificacao == 0){
-                  printf("cartão recusado");
+                  printf(" cartão recusado");
                   menu_principal();
                 }else{
-                  printf("compra finalizada");
+                  printf(" compra finalizada");
                   valor = valor + preco_final;
                   menu_principal();
              }
@@ -187,17 +187,17 @@ int vendas(int ve){
             }    
             
          } else if(ve==304){
-            printf("produto d- R$25.00");
-            printf("\nquantos produtos você quer?");
+            printf(" produto d- R$25.00");
+            printf(" \nquantos produtos você quer?");
             scanf("%d", &quantidade);
             mul= quantidade * preco_d;
-            printf("Preco com desconto %f", mul);
+            printf(" Preco com desconto %f", mul);
             //printf("multiplicaçao");
             //printf("%d", multi);
-            printf("\n1-dinheiro\n");
-            printf("\n2-cartao\n");
-            printf("\n3-cancelar compra\n");
-            printf("qual a forma de pagamento?");
+            printf(" \n1-dinheiro\n");
+            printf(" \n2-cartao\n");
+            printf(" \n3-cancelar compra\n");
+            printf(" qual a forma de pagamento?");
             scanf("%d", &escolha_pagamento);
             
             switch(escolha_pagamento){
@@ -209,26 +209,26 @@ int vendas(int ve){
              } else if (preco_d > 100) {// se maior que 100, desconto de 18 porcento
                  preco_final = preco_d - preco_d * (18.00/100);
              }    
-               printf("Total com desconto: R$%.2f\n", preco_final);
+               printf(" Total com desconto: R$%.2f\n", preco_final);
                
-               printf("Valor que o cliente entregou: ");
+               printf(" Valor que o cliente entregou: ");
                scanf(" %f", &valor);
 
                 valor = valor - preco_final; //calculando troco
 
-                printf("O troco ficou: R$%.2f", valor);
+                printf(" O troco ficou: R$%.2f", valor);
                 menu_principal();
 
                      break;
                      
             case 2:
-                printf("cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
+                printf(" cartão passou? (0 = nao , 1 = sim) :"); //verificacao do cartao
                 scanf("%f" , &verificacao);
                 if(verificacao == 0){
-                  printf("cartão recusado");
+                  printf(" cartão recusado");
                   menu_principal();
                 }else{
-                  printf("compra finalizada");
+                  printf(" compra finalizada");
                   valor = valor + preco_final;
                   menu_principal();
                   break;
@@ -238,7 +238,7 @@ int vendas(int ve){
             }
             
                } else if(ve==305){
-                 printf("voltar ao menu principal");
+                 printf(" voltar ao menu principal");
                  menu_principal();
     }
         
@@ -249,15 +249,15 @@ int vendas(int ve){
      int q;
      //opcoes para o usuario escolher
      if(es==101){
-         printf("produto a- 50un");
+         printf(" produto a- 50un");
      }else if(es==102){
-         printf("produto b - 30un ");
+         printf(" produto b - 30un ");
      }else if(es==103){
-         printf("produto c - 20un");
+         printf(" produto c - 20un");
      }else if(es==104){
-         printf("produto d - 15un");
+         printf(" produto d - 15un");
      }else if (es==105){
-         printf("voltar ao menu principal"); //caso ele queira voltar ao menu principal
+         printf(" voltar ao menu principal"); //caso ele queira voltar ao menu principal
          menu_principal();
          
      }
@@ -275,7 +275,10 @@ int vendas(int ve){
         case '1':
          int es;
          printf(" controle de estoque \n");
-         printf(" digite o código:");
+         printf(" escolha um código: \n");
+         printf(" 101 \n");
+         printf(" 102 \n");
+         printf(" 103 \n");
          scanf("%d", &es);
          estoque(es);
          break;
@@ -283,7 +286,10 @@ int vendas(int ve){
         case '2':
         int ve;
          printf(" controle de vendas \n");
-         printf(" digite o código:");
+         printf(" escolha um código: \n");
+         printf(" 301 \n");
+         printf(" 302 \n");
+         printf(" 303 \n");
          scanf("%d", &ve);
          vendas(ve);
          break;
@@ -291,7 +297,10 @@ int vendas(int ve){
         case '3':
         int fi;
          printf(" controle financeiro \n");
-         printf(" digite o código:");
+         printf(" escolha um código: \n");
+         printf(" 201 \n");
+         printf(" 202 \n");
+         printf(" 203 \n");
          scanf("%d", &fi);
          financeiro(fi);
          
