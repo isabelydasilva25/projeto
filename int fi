@@ -1,0 +1,16 @@
+int financeiro(int fi){
+    if(fi==201){ //verificacao de qual opcao o usuario escolheu
+        printf("registrar despesas");
+        scanf("%d" , &fi);
+        printf("as despesas sao: %d", fi);
+    }else if(fi==202){ //verificacao de qual opcao o usuario escolheu
+        printf("registrar receitas");
+        scanf("%d" , &fi);
+        printf("as receitas sao: %d", fi);
+    }else if(fi==203){ //verificacao de qual opcao o usuario escolheu
+        printf("consultar saldo");
+    }else if(fi==204){ //verificacao de qual opcao o usuario escolheu
+        printf("voltar ao menu principal");
+        menu_principal();
+    }
+    return fi;
